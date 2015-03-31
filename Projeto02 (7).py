@@ -75,6 +75,9 @@ for i in c:
     if p != "":
         lista.append(p)
 
+acertos1=0
+erros1=0
+
 while x=="sim" and len(lista)>0:
 
     e =choice(lista)
@@ -92,15 +95,13 @@ while x=="sim" and len(lista)>0:
     pen2= Pen()
     desenhar_tracos()
      
-    erros1= 0
     erros2=0
-    acertos1=0
     acertos2=0
     pen3=Pen()
     pen3.color("purple")
     pen4=Pen()
     pen4.color("pink")
-    while erros <6 and acertos <m:
+    while erros2 <6 and acertos2 <m:
         jogador = window.textinput("letras", "Digite uma Letra")
 
         if jogador in l :
@@ -110,47 +111,44 @@ while x=="sim" and len(lista)>0:
                   pen3.goto((-300 + 60*i + 10), -100)
                   pen3.pendown()
                   pen3.write(jogador, font= ("Arial", 14, "normal"))
-                  acertos+=1
-                elif jogador=="o" and l[i]=="ó":
+                  acertos2 +=1
+                elif jogador=="o" and l[i]=="ó" or l[i]=="ô":
                     letras_com_acento()
-                    acertos+=1
-                elif jogador=="o" and l[i]=="ô":
-                    letras_com_acento()
-                    acertos+=1
+                    acertos2 +=1
                 elif jogador=="a" and l[i]=="ã":
                     letras_com_acento()
-                    acertos+=1
+                    acertos2 +=1
                 elif jogador=="i" and l[i]=="í":
                     letras_com_acento()
-                    acertos+=1
+                    acertos2 +=1
                 
         else:
-            erros+=1
-            if erros==1:
+            erros2 +=1
+            if erros2==1:
                 pen4.penup()
                 pen4.goto(-450, 30)
                 pen4.pendown()
                 pen4.circle(20)
-            if erros==2:
+            if erros2==2:
                 pen4.goto(-450,-20)
-            if erros==3:
+            if erros2==3:
                 dist = 40
                 angulo=-45
                 pen4.left(angulo)  
                 pen4.forward(dist)
-            if erros==4:
+            if erros2==4:
                 pen4.goto(-450,-20)
                 dist = 40
                 angulo=270
                 pen4.left(angulo)  
                 pen4.forward(dist)
-            if erros==5:
+            if erros2==5:
                 pen4.penup()
                 pen4.goto(-450,10)
                 pen4.pendown()
                 dist = 30
                 pen4.forward(dist)
-            if erros==6:
+            if erros2==6:
                 pen4.penup()
                 pen4.goto(-450,10)
                 pen4.pendown()
@@ -158,11 +156,12 @@ while x=="sim" and len(lista)>0:
                 angulo=90
                 pen4.left(angulo)
                 pen4.forward(dist)
-                
-    jogadas= acertos + erros
-    media= acertos / jogadas
+    acertos1 = acertos1 + acertos2
+    erros1= erros1 + erros2           
+    jogadas= acertos1 + erros1
+    media= acertos1 / jogadas
     print (media)
-    if acertos==m:           
+    if acertos2==m:           
         x=str(window.textinput("Novamente", " PARABENS, VOCE ACERTOU A PARAVRA! Sua media foi de %5.2f acertos/palavra Jogar novamente? (sim ou nao)" % (media)))
     else:
         x=str(window.textinput("Novamente", " VOCE PERDEU! Sua media foi de %5.2f! Jogar novamente? (sim ou nao)" %(media)))
@@ -174,8 +173,9 @@ while x=="sim" and len(lista)>0:
         pen4.clear()
         pen4.reset()
         lista.remove(e)
+        
+y=str(window.textinput("fim", "O JOGO ACABOU"))
     
-
 window.exitonclick()
 
     
