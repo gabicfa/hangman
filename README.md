@@ -3,6 +3,8 @@
 ## Description:
 This project is a hangman game that makes use of the resources of python programming taught in the first semester of computer engineering at Insper. The game reads a word list from a file and ask the user one letter guess at a time until it gets the word or the hangmen is completed.
 
+<img src="img/img1.png" width="400" height="350">
+
 ## Guidance
 Python 3 and the turtle module were used for the interface. This module allows the program to ask data to the user using a graphical window. 
 
