@@ -26,6 +26,8 @@ The turn ends when the hangman figure is completed. The hangman has 6 elements (
 
 At the end of the shift, the user is asked if he wants to play again with another word. The scoreboard shows the average number of tries needed to get a word
 
+Created on March 27 17:27:42 2015
+
 
 
 
